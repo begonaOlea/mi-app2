@@ -5,6 +5,7 @@
 <ul  class="list-group">
   <li  class="list-group-item {{ e.selected? 'active': ''}}"
       *ngFor="let e of employees">
+        {{ e.id }}, 
         {{ e.firstName }}, 
         {{ e.lastName | miPipe}}
   </li>

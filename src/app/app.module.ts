@@ -10,6 +10,8 @@ import { ServidoresComponent } from './servidores/servidores.component';
 import { ServidorComponent } from './servidores/servidor/servidor.component';
 import { EditServidorComponent } from './servidores/edit-servidor/edit-servidor.component';
 import { LogService } from './servicios/log.service';
+import { EmpleadoService } from './servicios/empleado.service';
+import { EditarEmpleadoComponent } from './lista-empleados/editar-empleado/editar-empleado.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,14 @@ import { LogService } from './servicios/log.service';
     MiPipePipe,
     ServidoresComponent,
     ServidorComponent,
-    EditServidorComponent
+    EditServidorComponent,
+    EditarEmpleadoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [LogService],
+  providers: [LogService, EmpleadoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

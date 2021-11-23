@@ -11,10 +11,9 @@ import { EmpleadoService } from '../servicios/empleado.service';
 })
 export class ListaEmpleadosComponent implements OnInit {
 
-
   employees: Employee[] ;
 
-  estiloTitulo = {'color':'red', 'border-bottom':'1px solid red'};
+  estiloTitulo = {'color': 'red', 'border-bottom': '1px solid red'};
   tipoAlerta = 'alert-secondary';
 
   constructor(private logService: LogService,
