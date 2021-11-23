@@ -6,8 +6,8 @@ import { EmpleadoService } from '../servicios/empleado.service';
 @Component({
   selector: 'app-lista-empleados',
   templateUrl: './lista-empleados.component.html',
-  styleUrls: ['./lista-empleados.component.css'],
-  providers: [EmpleadoService]
+  styleUrls: ['./lista-empleados.component.css']
+  //providers: [EmpleadoService]
 })
 export class ListaEmpleadosComponent implements OnInit {
 
@@ -18,11 +18,19 @@ export class ListaEmpleadosComponent implements OnInit {
 
   constructor(private logService: LogService,
               private empService: EmpleadoService) {
-   }
+      //voy a suscribirme al evento emite 
+      this.empService.cambioNombre.subscribe(
+        (msg: string) => {
+          this.logService.logToConsole(msg);
+          this.employees = empService.getAllEmpleados();
+        }
+
+      );
+    }
 
   ngOnInit(): void {
     this.employees = this.empService.getAllEmpleados();
-    this.logService.logToConsole('Se ha creado el componente Lista empeados');
+    this.logService.logToConsole('Se ha creado el componente Lista empleados');
   }
 
 }
