@@ -1,0 +1,24 @@
+<h3>hola {{ nombre }}!</h3>
+<h6> Hoy es {{ hoy | date : 'short':'fr' }}</h6>
+
+<button onclick="alert('hola');"> Pulsa aquí </button>
+
+<button (click)="mostarOcultar()"
+   type="button" class="btn btn-primary">
+	{{ show ? 'Ocultar' : 'Mostar'   }} 
+</button>
+
+<div *ngIf="show" class="caja" > Texto a mostar  </div>
+
+
+<p>{{ 11256.569 | currency:"CAD":'symbol-narrow':'4.2' }}</p> 
+<p>{{ 11256.569 | currency:"CAD":'symbol':'4.2' }}</p> 
+<p>{{ 11256.569 | currency:"CAD":'code' }}</p>
+
+
+{{ person | json }}
+
+
+
+
+

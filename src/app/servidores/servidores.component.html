@@ -1,0 +1,24 @@
+<p>servidores works!</p>
+
+<app-servidor servidorId="1"  
+          (cambioEstado)="onUnoDelosServidoresCambio($event);" ></app-servidor>
+<hr />
+<app-servidor servidorId="2" (cambioEstado)="onUnoDelosServidoresCambio($event);" >
+
+</app-servidor>
+<hr />
+<app-servidor servidorId="5" (cambioEstado)="onUnoDelosServidoresCambio($event);" >
+	
+</app-servidor>
+
+<hr>
+<button [disabled]=" ! permitirNuevoServidor"
+        (click) ="onCrearServidor()"
+     type="button" class="btn btn-primary">
+	Añadir un nuevo Servidor
+</button>
+<p [innerText]="estadoServidorNuevo"></p>
+
+
+<h3>Editar</h3>
+<app-edit-servidor></app-edit-servidor>

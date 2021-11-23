@@ -1,0 +1,15 @@
+
+
+<h3 [ngStyle]="estiloTitulo">Lista empleados</h3>
+
+<ul  class="list-group">
+  <li  class="list-group-item {{ e.selected? 'active': ''}}"
+      *ngFor="let e of employees">
+        {{ e.firstName }}, 
+        {{ e.lastName | miPipe}}
+  </li>
+</ul>
+
+<div class="alert" [ngClass]="tipoAlerta" role="alert">
+  lista importante
+</div>
