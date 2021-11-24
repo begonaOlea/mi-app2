@@ -16,7 +16,6 @@ export class ListaEmpleadosComponent implements OnInit, OnDestroy {
 
   estiloTitulo = {'color': 'red', 'border-bottom': '1px solid red'};
   tipoAlerta = 'alert-secondary';
-
   suscripcion: Subscription;
 
   constructor(private logService: LogService,
@@ -27,7 +26,6 @@ export class ListaEmpleadosComponent implements OnInit, OnDestroy {
           this.logService.logToConsole(msg);
           this.employees = empService.getAllEmpleados();
         }
-
       );
 
       this.suscripcion = this.empService.nuevosEmpleadosObservable.subscribe(
@@ -36,10 +34,7 @@ export class ListaEmpleadosComponent implements OnInit, OnDestroy {
             this.logService.logToConsole('llego un empleado');
             this.employees.push(emp);
           }
-
       );
-
-
     }
 
   ngOnDestroy(): void {

@@ -1,17 +1,29 @@
-<!--
 
-<h1> {{ title }} </h1>
-<hr />
-<app-lista-empleados></app-lista-empleados>
-<app-lista-empleados></app-lista-empleados>	
+<h1>TIENDA ONLINE - PRODUCTOS </h1>
 
-<hr />
+<!-- NAVEGACION -->
 
-<app-servidores></app-servidores>
--->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <ul class="navbar-nav " >
+        <li class="nav-item">
+           <a class="nav-link" routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        </li>
+        <li class="nav-item">
+           <a class="nav-link" routerLinkActive="active" routerLink="/productos">Lista</a>
+        </li>
+        <li class="nav-item">
+           <a class="nav-link" routerLinkActive="active" routerLink="/productos/nuevo">Nuevo</a>
+        </li>
+      </ul>
+  </div>
+</nav>
 
-<app-lista-empleados></app-lista-empleados>	
-<hr/>
-<app-editar-empleado></app-editar-empleado>
 
-<app-demo-observable></app-demo-observable>
+<div class="row">
+    <div class="col">
+       <router-outlet></router-outlet>
+    </div>
+
+</div>
+

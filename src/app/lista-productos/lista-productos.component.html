@@ -1,0 +1,16 @@
+<p>lista productos Tienda</p>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Id</th>
+		<th scope="col">Nombre</th></tr></thead>
+	
+	<tbody>
+		<tr *ngFor="let p of productos">
+		<td scope="row">{{p.idProducto}}<td scope="row"></td>
+		<td scope="row">{{ p.nombre }}</td>
+		<td scope="row"><a [routerLink]="['/productos', p.idProducto]">ver</a></td>
+		</tr>
+	</tbody>
+</table>

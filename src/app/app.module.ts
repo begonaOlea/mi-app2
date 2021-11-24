@@ -1,36 +1,32 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+
 import { AppComponent } from './app.component';
-import { HolaComponent } from './hola/hola.component';
-import { ListaEmpleadosComponent } from './lista-empleados/lista-empleados.component';
-import { MiPipePipe } from './mi-pipe.pipe';
-import { ServidoresComponent } from './servidores/servidores.component';
-import { ServidorComponent } from './servidores/servidor/servidor.component';
-import { EditServidorComponent } from './servidores/edit-servidor/edit-servidor.component';
-import { LogService } from './servicios/log.service';
-import { EmpleadoService } from './servicios/empleado.service';
-import { EditarEmpleadoComponent } from './lista-empleados/editar-empleado/editar-empleado.component';
-import { DemoObservableComponent } from './demo-observable/demo-observable.component';
+import { ListaProductosComponent } from './lista-productos/lista-productos.component';
+import { ItemProductoComponent } from './lista-productos/item-producto/item-producto.component';
+import { EditProductoComponent } from './lista-productos/edit-producto/edit-producto.component';
+import { ProductosService } from './lista-productos/servicios/productos.service';
+import { ProductosRoutingModule } from './productos-routing.module';
+import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HolaComponent,
-    ListaEmpleadosComponent,
-    MiPipePipe,
-    ServidoresComponent,
-    ServidorComponent,
-    EditServidorComponent,
-    EditarEmpleadoComponent,
-    DemoObservableComponent
+    ListaProductosComponent,
+    ItemProductoComponent,
+    EditProductoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ProductosRoutingModule,
+    HttpClientModule
   ],
-  providers: [LogService, EmpleadoService],
+  providers: [ProductosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
