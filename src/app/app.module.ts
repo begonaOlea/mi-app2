@@ -12,6 +12,7 @@ import { EditServidorComponent } from './servidores/edit-servidor/edit-servidor.
 import { LogService } from './servicios/log.service';
 import { EmpleadoService } from './servicios/empleado.service';
 import { EditarEmpleadoComponent } from './lista-empleados/editar-empleado/editar-empleado.component';
+import { DemoObservableComponent } from './demo-observable/demo-observable.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditarEmpleadoComponent } from './lista-empleados/editar-empleado/edita
     ServidoresComponent,
     ServidorComponent,
     EditServidorComponent,
-    EditarEmpleadoComponent
+    EditarEmpleadoComponent,
+    DemoObservableComponent
   ],
   imports: [
     BrowserModule,

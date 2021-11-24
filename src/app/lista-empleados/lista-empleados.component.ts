@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Employee } from './domain/employee';
 import { LogService } from '../servicios/log.service';
 import { EmpleadoService } from '../servicios/empleado.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-lista-empleados',
@@ -9,12 +10,14 @@ import { EmpleadoService } from '../servicios/empleado.service';
   styleUrls: ['./lista-empleados.component.css']
   //providers: [EmpleadoService]
 })
-export class ListaEmpleadosComponent implements OnInit {
+export class ListaEmpleadosComponent implements OnInit, OnDestroy {
 
   employees: Employee[] ;
 
   estiloTitulo = {'color': 'red', 'border-bottom': '1px solid red'};
   tipoAlerta = 'alert-secondary';
+
+  suscripcion: Subscription;
 
   constructor(private logService: LogService,
               private empService: EmpleadoService) {
@@ -26,7 +29,22 @@ export class ListaEmpleadosComponent implements OnInit {
         }
 
       );
+
+      this.suscripcion = this.empService.nuevosEmpleadosObservable.subscribe(
+          (emp: Employee) =>
+          {
+            this.logService.logToConsole('llego un empleado');
+            this.employees.push(emp);
+          }
+
+      );
+
+
     }
+
+  ngOnDestroy(): void {
+      this.suscripcion.unsubscribe();
+  }
 
   ngOnInit(): void {
     this.employees = this.empService.getAllEmpleados();
