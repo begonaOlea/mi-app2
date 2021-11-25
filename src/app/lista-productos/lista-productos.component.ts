@@ -19,6 +19,20 @@ export class ListaProductosComponent implements OnInit, OnDestroy {
       this.loadProductos();
   }
 
+
+  onBorrarProducto(idProd: string): void{
+    console.log('borro ' + idProd);
+       this.service.deleteProducto(idProd).subscribe(
+         datos => {
+           console.log(datos)
+            alert('Producto Borrado');
+            this.loadProductos();
+         },
+         error  => { alert(error) }
+       )
+  }
+
+
    private loadProductos(): void{
        this.suscritor = this.service.getProductos().subscribe(
          (datos) => {

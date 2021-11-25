@@ -11,6 +11,10 @@
 		<td scope="row">{{p.idProducto}}<td scope="row"></td>
 		<td scope="row">{{ p.nombre }}</td>
 		<td scope="row"><a [routerLink]="['/productos', p.idProducto]">ver</a></td>
+		<td scope="row">
+			<button class="btn btn-primary" (click)="onBorrarProducto(p.idProducto)" >Borrar</button>
+
+		</td>
 		</tr>
 	</tbody>
 </table>
